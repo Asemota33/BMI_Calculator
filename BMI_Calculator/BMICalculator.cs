@@ -7,7 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * Author: Michael Asemota
+ * Student ID: 301052117
+ * Date: 7/1/2019
+ * Program: Comp123
+ * 
+ */
 namespace BMI_Calculator
 {
     public partial class BMICalculator : Form
