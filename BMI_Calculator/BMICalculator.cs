@@ -73,8 +73,8 @@ namespace BMI_Calculator
         /// <param name="e"></param>
         private void MetricRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            WeightMeasurementLabel.Text = "(Killograms)";
-            HeightMeasurementLabel.Text = "(Metres)";
+            WeightMeasurementLabel.Text = "Kgs";
+            HeightMeasurementLabel.Text = "M";
         }
         /// <summary>
         /// Event listner for imperial radio button
@@ -83,8 +83,8 @@ namespace BMI_Calculator
         /// <param name="e"></param>
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
-            WeightMeasurementLabel.Text = "(Pounds)";
-            HeightMeasurementLabel.Text = "(Inches)";
+            WeightMeasurementLabel.Text = "Lbs";
+            HeightMeasurementLabel.Text = "Inches";
         }
         /// <summary>
         /// Event listner to check if the height text box has a float value
