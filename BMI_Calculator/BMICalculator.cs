@@ -44,7 +44,6 @@ namespace BMI_Calculator
                 BMI = UserWeight / (UserHeight * UserHeight);
                 BMITextbox.Text = BMI.ToString();
             }
-            
             ClearForm();
         }
         /// <summary>
@@ -87,14 +86,15 @@ namespace BMI_Calculator
             HeightMeasurementLabel.Text = "Inches";
         }
         /// <summary>
-        /// Event listner to check if the height text box has a float value
+        /// Event listner to check if the weight or height text box has a float value
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void HeightTextBox_TextChanged(object sender, EventArgs e)
+        private void TextBoxChanged(object sender, EventArgs e)
         {
             try
             {
+                float.Parse(WeightTextBox.Text);
                 float.Parse(HeightTextBox.Text);
                 CalculateButton.Enabled = true;
                 BMITextbox.Clear();
@@ -102,26 +102,6 @@ namespace BMI_Calculator
             catch
             {
                 CalculateButton.Enabled = false;
-
-            }
-        }
-        /// <summary>
-        /// Event listner to check if the weight text box has a float value
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void WeightTextBox_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                float.Parse(WeightTextBox.Text);
-                CalculateButton.Enabled = true;
-                BMITextbox.Clear();
-            }
-            catch
-            {
-                CalculateButton.Enabled = false;
-
             }
         }
     }
