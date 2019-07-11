@@ -44,8 +44,32 @@ namespace BMI_Calculator
                 BMI = UserWeight / (UserHeight * UserHeight);
                 BMITextbox.Text = BMI.ToString();
             }
+            HighlightBMIScale();
             ClearForm();
         }
+
+        private void HighlightBMIScale()
+        {
+            var bmiValue = BMITextbox.Text;
+            var bmiOutput = double.Parse(BMITextbox.Text);
+            if (bmiOutput <= 18.5)
+            {
+                BMIScaleMultiLineTextBox.BackColor = Color.Bisque;
+            }
+            else if (bmiOutput > 18.5 && bmiOutput <= 24.9)
+            {
+                BMIScaleMultiLineTextBox.BackColor = Color.Yellow;
+            }
+            else if (bmiOutput > 24.9 && bmiOutput <= 29.9)
+            {
+                BMIScaleMultiLineTextBox.BackColor = Color.Blue;
+            }
+            else if (bmiOutput >= 30)
+            {
+                BMIScaleMultiLineTextBox.BackColor = Color.ForestGreen;
+            }
+        }
+
         /// <summary>
         /// Method for clearing the textboxes in the form
         /// </summary>
@@ -103,6 +127,7 @@ namespace BMI_Calculator
             {
                 CalculateButton.Enabled = false;
             }
+            
         }
     }
 }
