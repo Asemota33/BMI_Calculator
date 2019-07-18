@@ -10,7 +10,7 @@ using System.Windows.Forms;
 /*
  * Author: Michael Asemota
  * Student ID: 301052117
- * Date: 7/1/2019
+ * Date: 7/17/2019
  * Program: Comp123
  * 
  */
@@ -47,26 +47,35 @@ namespace BMI_Calculator
             HighlightBMIScale();
             ClearForm();
         }
-
+        /// <summary>
+        /// Highlights the textbox and shows there bmi information
+        /// </summary>
         private void HighlightBMIScale()
         {
             var bmiValue = BMITextbox.Text;
             var bmiOutput = double.Parse(BMITextbox.Text);
             if (bmiOutput <= 18.5)
             {
-                BMIScaleMultiLineTextBox.BackColor = Color.Bisque;
+                BMIScaleMultiLineTextBox.BackColor = Color.LightBlue;
+                BMIScaleMultiLineTextBox.Text = "Your Are Currently Under Weight";
+
             }
             else if (bmiOutput > 18.5 && bmiOutput <= 24.9)
             {
-                BMIScaleMultiLineTextBox.BackColor = Color.Yellow;
+                BMIScaleMultiLineTextBox.BackColor = Color.GreenYellow;
+                BMIScaleMultiLineTextBox.Text = "Your Are Of Normal Weight";
+
             }
             else if (bmiOutput > 24.9 && bmiOutput <= 29.9)
             {
-                BMIScaleMultiLineTextBox.BackColor = Color.Blue;
+                BMIScaleMultiLineTextBox.BackColor = Color.Pink;
+                BMIScaleMultiLineTextBox.Text = "Your Are Currently OverWeight";
+
             }
             else if (bmiOutput >= 30)
             {
-                BMIScaleMultiLineTextBox.BackColor = Color.ForestGreen;
+                BMIScaleMultiLineTextBox.BackColor = Color.Red;
+                BMIScaleMultiLineTextBox.Text = "Your Are Currently Obese";
             }
         }
 
@@ -107,7 +116,7 @@ namespace BMI_Calculator
         private void ImperialRadioButton_CheckedChanged(object sender, EventArgs e)
         {
             WeightMeasurementLabel.Text = "Lbs";
-            HeightMeasurementLabel.Text = "Inches";
+            HeightMeasurementLabel.Text = "Inch";
         }
         /// <summary>
         /// Event listner to check if the weight or height text box has a float value
@@ -128,6 +137,19 @@ namespace BMI_Calculator
                 CalculateButton.Enabled = false;
             }
             
+        }
+        /// <summary>
+        /// This method sets the background color to white and clears all textboxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            HeightTextBox.Clear();
+            WeightTextBox.Clear();
+            BMITextbox.Clear();
+            BMIScaleMultiLineTextBox.Clear();
+            BMIScaleMultiLineTextBox.BackColor = Color.White;
         }
     }
 }

@@ -40,6 +40,8 @@
             this.HeightMeasurementLabel = new System.Windows.Forms.Label();
             this.CalculateButton = new System.Windows.Forms.Button();
             this.BMIScaleMultiLineTextBox = new System.Windows.Forms.TextBox();
+            this.BMILabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +51,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.Controls.Add(this.BMILabel, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.WeightTextBox, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.ImperialRadioButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.WeightLabel, 0, 2);
@@ -127,6 +130,7 @@
             // HeightLabel
             // 
             this.HeightLabel.AutoSize = true;
+            this.HeightLabel.ForeColor = System.Drawing.Color.White;
             this.HeightLabel.Location = new System.Drawing.Point(2, 70);
             this.HeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HeightLabel.Name = "HeightLabel";
@@ -162,9 +166,9 @@
             this.HeightMeasurementLabel.Location = new System.Drawing.Point(257, 70);
             this.HeightMeasurementLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.HeightMeasurementLabel.Name = "HeightMeasurementLabel";
-            this.HeightMeasurementLabel.Size = new System.Drawing.Size(42, 34);
+            this.HeightMeasurementLabel.Size = new System.Drawing.Size(34, 17);
             this.HeightMeasurementLabel.TabIndex = 10;
-            this.HeightMeasurementLabel.Text = "Inches";
+            this.HeightMeasurementLabel.Text = "Inch";
             // 
             // CalculateButton
             // 
@@ -184,10 +188,31 @@
             this.BMIScaleMultiLineTextBox.Location = new System.Drawing.Point(3, 301);
             this.BMIScaleMultiLineTextBox.Multiline = true;
             this.BMIScaleMultiLineTextBox.Name = "BMIScaleMultiLineTextBox";
-            this.BMIScaleMultiLineTextBox.Size = new System.Drawing.Size(301, 139);
+            this.BMIScaleMultiLineTextBox.Size = new System.Drawing.Size(301, 83);
             this.BMIScaleMultiLineTextBox.TabIndex = 4;
-            this.BMIScaleMultiLineTextBox.Text = "UnderWeight (less than 18.5)\r\nNormal (18.5 - 24.9)\r\nOverWeight (25 - 29.9)\r\nObese" +
-    " (30 or more)";
+            // 
+            // BMILabel
+            // 
+            this.BMILabel.AutoSize = true;
+            this.BMILabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BMILabel.Location = new System.Drawing.Point(257, 210);
+            this.BMILabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.BMILabel.Name = "BMILabel";
+            this.BMILabel.Size = new System.Drawing.Size(31, 17);
+            this.BMILabel.TabIndex = 10;
+            this.BMILabel.Text = "BMI";
+            // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.MediumPurple;
+            this.clearButton.Location = new System.Drawing.Point(1, 381);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(303, 59);
+            this.clearButton.TabIndex = 9;
+            this.clearButton.Text = "Reset";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // BMICalculator
             // 
@@ -195,6 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.BMIScaleMultiLineTextBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Font = new System.Drawing.Font("Arial Narrow", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -204,7 +230,7 @@
             this.MaximizeBox = false;
             this.Name = "BMICalculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "BMI Calculator";
             this.Load += new System.EventHandler(this.BMICalc_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -227,6 +253,8 @@
         private System.Windows.Forms.Label WeightMeasurementLabel;
         private System.Windows.Forms.Label HeightMeasurementLabel;
         private System.Windows.Forms.TextBox BMIScaleMultiLineTextBox;
+        private System.Windows.Forms.Label BMILabel;
+        private System.Windows.Forms.Button clearButton;
     }
 }
 
