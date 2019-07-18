@@ -8,6 +8,7 @@ namespace BMI_Calculator
 {
     static class Program
     {
+        public static Dictionary<FormName, Form> Forms;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +17,10 @@ namespace BMI_Calculator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculator());
+            Forms = new Dictionary<FormName, Form>();
+            Forms.Add(FormName.SPLASH_FORM, new Splash());
+            Forms.Add(FormName.BMI_FORM, new BMICalculator());
+            Application.Run(Forms[FormName.SPLASH_FORM]);
         }
     }
 }

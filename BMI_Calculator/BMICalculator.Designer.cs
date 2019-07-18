@@ -172,7 +172,7 @@
             // 
             // CalculateButton
             // 
-            this.CalculateButton.BackColor = System.Drawing.Color.DimGray;
+            this.CalculateButton.BackColor = System.Drawing.Color.MediumPurple;
             this.CalculateButton.Location = new System.Drawing.Point(2, 213);
             this.CalculateButton.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.CalculateButton.Name = "CalculateButton";
@@ -231,6 +231,7 @@
             this.Name = "BMICalculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMI Calculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculator_Closing);
             this.Load += new System.EventHandler(this.BMICalc_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

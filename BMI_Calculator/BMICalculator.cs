@@ -151,5 +151,10 @@ namespace BMI_Calculator
             BMIScaleMultiLineTextBox.Clear();
             BMIScaleMultiLineTextBox.BackColor = Color.White;
         }
+
+        private void BMICalculator_Closing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
