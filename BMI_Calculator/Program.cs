@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+/*
+ * Author: Michael Asemota
+ * Student ID: 301052117
+ * Date: 7/21/2019
+ * Program: Comp123
+ * 
+ */
 namespace BMI_Calculator
 {
     static class Program

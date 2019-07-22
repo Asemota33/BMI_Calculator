@@ -10,7 +10,7 @@ using System.Windows.Forms;
 /*
  * Author: Michael Asemota
  * Student ID: 301052117
- * Date: 7/17/2019
+ * Date: 7/21/2019
  * Program: Comp123
  * 
  */
@@ -18,8 +18,10 @@ namespace BMI_Calculator
 {
     public partial class BMICalculator : Form
     {
-        public float UserWeight { get; set; }
-        public float UserHeight { get; set; } 
+            public float UserWeight { get; set; } 
+            
+        public float UserHeight { get; set; }
+        
         public float BMI { get; set; }
         public BMICalculator()
         {
@@ -32,20 +34,32 @@ namespace BMI_Calculator
         /// <param name="e"></param>
         private void CalculateButton_Click(object sender, EventArgs e)
         {
-            UserWeight = float.Parse(WeightTextBox.Text);
-            UserHeight = float.Parse(HeightTextBox.Text);
-            if (ImperialRadioButton.Checked == true)
+            try
             {
-                BMI = (UserWeight * 703) / (UserHeight * UserHeight);
-                BMITextbox.Text = BMI.ToString();
+                if (float.Parse(HeightTextBox.Text) > 0  && float.Parse(WeightTextBox.Text) > 0 && float.Parse(WeightTextBox.Text) < 1000 && float.Parse(HeightTextBox.Text) < 100)
+                {
+                    UserWeight = float.Parse(WeightTextBox.Text);
+                    UserHeight = float.Parse(HeightTextBox.Text);
+                    if (ImperialRadioButton.Checked == true)
+                    {
+                        BMI = (UserWeight * 703) / (UserHeight * UserHeight);
+                        BMITextbox.Text = BMI.ToString();
+                    }
+                    else
+                    {
+                        BMI = UserWeight / (UserHeight * UserHeight);
+                        BMITextbox.Text = BMI.ToString();
+                    }
+                    HighlightBMIScale();
+                    ClearForm();
+                }
+
             }
-            else
+            catch 
             {
-                BMI = UserWeight / (UserHeight * UserHeight);
-                BMITextbox.Text = BMI.ToString();
+
+                CalculateButton.Enabled = false;
             }
-            HighlightBMIScale();
-            ClearForm();
         }
         /// <summary>
         /// Highlights the textbox and shows there bmi information
@@ -77,6 +91,12 @@ namespace BMI_Calculator
                 BMIScaleMultiLineTextBox.BackColor = Color.Red;
                 BMIScaleMultiLineTextBox.Text = "Your Are Currently Obese";
             }
+            else if (bmiOutput.ToString() == "Infinity")
+            {
+                BMIScaleMultiLineTextBox.Text = "";
+                BMIScaleMultiLineTextBox.BackColor = Color.White;
+            }
+            
         }
 
         /// <summary>
@@ -136,7 +156,7 @@ namespace BMI_Calculator
             {
                 CalculateButton.Enabled = false;
             }
-            
+
         }
         /// <summary>
         /// This method sets the background color to white and clears all textboxes
