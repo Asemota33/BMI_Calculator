@@ -18,7 +18,7 @@ namespace BMI_Calculator
 {
     public partial class BMICalculator : Form
     {
-            public float UserWeight { get; set; } 
+        public float UserWeight { get; set; } 
             
         public float UserHeight { get; set; }
         
